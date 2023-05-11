@@ -60,7 +60,12 @@ const tabsAppender = (selector) => {
         })
         .catch(err => console.log(err))
 
-
+        const tabs = Tabs('topics');
+        const tabsContainer = document.querySelector(selector);
+       
+         tabsContainer.appendChild(tabs)
+       
+         return tabs
 
 }
 
