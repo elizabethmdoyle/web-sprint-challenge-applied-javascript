@@ -20,19 +20,30 @@ const Tabs = (topics) => {
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
   const tab3 = document.createElement('div');
+  const tab4 = document.createElement('div');
+  const tab5 = document.createElement('div');
+
 
   topic.classList.add('topics');
   tab1.classList.add('tab');
   tab2.classList.add('tab');
   tab3.classList.add('tab');
+  tab4.classList.add('tab');
+  tab5.classList.add('tab');
  
   tab1.textContent = 'javascript';
   tab2.textContent = 'bootstrap';
   tab3.textContent = 'technology';
+  tab4.textContent = 'jquery';
+  tab5.textContent = 'node.js';
+
  
   topic.appendChild(tab1);
   topic.appendChild(tab2);
   topic.appendChild(tab3);
+  topic.appendChild(tab4);
+  topic.appendChild(tab5);
+
  
   return topic
 }
@@ -46,7 +57,7 @@ const tabsAppender = (selector) => {
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
 
-  // const tabs = Tabs('topics');
+  const tabs = Tabs('topics');
  
   //  tabsContainer.appendChild(tabs)
  
@@ -54,28 +65,22 @@ const tabsAppender = (selector) => {
         .then(res => {
          
           const topics = res.data.topics;
-          const tabs = Tabs('topics');
           console.log(topics);
-
 
           const tabsContainer = document.querySelector(selector);
 
-          document.querySelector(selector).appendChild(Tabs(topics))
+          // document.querySelector(selector).appendChild(Tabs(topics))
           
-          // topics.forEach(topic => {
-          //   if( topic == topic) {
-          //     tabsContainer.appendChild(Tabs(tabs.topic))
-
-          //   } else (console.log('cannot append topic'))          })
+        tabsContainer.appendChild(Tabs(tabs))
 
 
         })
          .catch(err => console.log(err))
 
-
+      
 
    return tabs
 
-}
 
+}
 export { Tabs, tabsAppender }

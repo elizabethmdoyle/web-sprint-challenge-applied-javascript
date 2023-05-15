@@ -58,13 +58,14 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
 
 
+  const cards = Card('articles');
 
 
   axios.get('http://localhost:5001/api/articles')
   .then(res => {
     
       const articles = res.data.articles;
-      const cards = Card('articles');
+      // const cards = Card('articles');
       console.log(articles);
 
       const cardsContainer = document.querySelector(selector);
