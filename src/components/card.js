@@ -56,14 +56,151 @@ const cardAppender = (selector) => {
   // However, the articles do not come organized in a single, neat array. Inspect the response closely!
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
+
+
+
+
+
+
 
 
   axios.get('http://localhost:5001/api/articles')
   .then(res => {
-    console.log(res.data)
-    const article = res.data
-   
+    console.log(res.data.articles)
+    const articleObject = res.data.articles
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ................................................................................................................................................................................................................
 
   })
   .catch(err => console.log(err))
@@ -71,9 +208,11 @@ const cardAppender = (selector) => {
   const cards = Card('articles');
   const cardsContainer = document.querySelector(selector);
  
-   cardsContainer.appendChild(cards)
+   cardsContainer.appendChild(articleObject)
  
    return cards
 }
 
-export { Card, cardAppender }
+export { Card, cardAppender 
+  
+00000000000000000000
