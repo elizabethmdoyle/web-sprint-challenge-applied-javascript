@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Tabs = (topics) => {
+const Tabs = ([topics]) => {
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -69,21 +69,14 @@ const tabsAppender = (selector) => {
           console.log(res.data.topics);
           const topics = res.data.topics
           document.querySelector(selector).appendChild(Tabs(topics))
-          // const topics = Array.from(res.data.topics)
-          // console.log(topics)
-          // topics.forEach(link => {
           
-          // const topic =  document.createElement('div').classList.add('tab')
-          //   topic.textContent = link
-          //     tabsContainer.appendChild(link)
-           
-          // });
+          tabs.forEach(tab => {
+            tabsContainer.appendChild()
+          })
+
+
         })
          .catch(err => console.log(err))
-
-      
-
- 
 
 
 

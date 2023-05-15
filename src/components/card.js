@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const Card = (article) => {
+const Card = (articleHeadline, authorPhoto, nameofAuthor) => {
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -34,9 +34,10 @@ author.classList.add('author');
 imgContainer.classList.add('img-container');
 
 
-headline.textContent = article.headline;
-image.src = article.authorPhoto;
-authorName.textContent = article.authorName;
+
+headline.textContent = articleHeadline;
+image.src = authorPhoto;
+authorName.textContent = nameofAuthor;
 
 card.appendChild(headline);
 card.appendChild(author);
@@ -47,7 +48,6 @@ imgContainer.appendChild(image)
 return card
 
 }
-
 const cardAppender = (selector) => {
   // TASK 6
   // ---------------------
@@ -60,159 +60,43 @@ const cardAppender = (selector) => {
 
 
 
-
-
-
-
   axios.get('http://localhost:5001/api/articles')
   .then(res => {
-    console.log(res.data.articles)
-    const articleObject = res.data.articles
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ................................................................................................................................................................................................................
-
-  })
+      const articles = res.data.articles;
+      const cards = Card('articles');
+      console.log(articles);
+
+      const cardsContainer = document.querySelector(selector);
+
+      console.log(articles.bootstrap)
+
+      articles.bootstrap.forEach(article => {
+        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      })
+      articles.javascript.forEach(article => {
+        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      })
+      articles.jquery.forEach(article => {
+        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      })
+      articles.node.forEach(article => {
+        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      })
+      articles.technology.forEach(article => {
+        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      })
+      
+      })
+
+      
+    
   .catch(err => console.log(err))
 
-  const cards = Card('articles');
-  const cardsContainer = document.querySelector(selector);
- 
-   cardsContainer.appendChild(articleObject)
+
+
  
    return cards
 }
 
-export { Card, cardAppender 
-  
-00000000000000000000
+export { Card, cardAppender }
