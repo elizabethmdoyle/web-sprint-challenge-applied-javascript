@@ -16,36 +16,37 @@ const Tabs = (topics) => {
   // </div>
   //
 
-  const topic = document.createElement('div');
-  const tab1 = document.createElement('div');
-  const tab2 = document.createElement('div');
-  const tab3 = document.createElement('div');
-  // const tab4 = document.createElement('div');
-  // const tab5 = document.createElement('div');
+  // const topic = document.createElement('div');
+  // const tab1 = document.createElement('div');
+  // const tab2 = document.createElement('div');
+  // const tab3 = document.createElement('div');
 
+  // topic.classList.add('topics');
+  // tab1.classList.add('tab');
+  // tab2.classList.add('tab');
+  // tab3.classList.add('tab');
 
-  topic.classList.add('topics');
-  tab1.classList.add('tab');
-  tab2.classList.add('tab');
-  tab3.classList.add('tab');
-  // tab4.classList.add('tab');
-  // tab5.classList.add('tab');
+  // tab1.textContent = 'javascript';
+  // tab2.textContent = 'bootstrap';
+  // tab3.textContent = 'technology';
  
-  tab1.textContent = 'javascript';
-  tab2.textContent = 'bootstrap';
-  tab3.textContent = 'technology';
-  // tab4.textContent = 'jquery';
-  // tab5.textContent = 'node.js';
-
  
-  topic.appendChild(tab1);
-  topic.appendChild(tab2);
-  topic.appendChild(tab3);
-  // topic.appendChild(tab4);
-  // topic.appendChild(tab5);
+  // topic.appendChild(tab1);
+  // topic.appendChild(tab2);
+  // topic.appendChild(tab3);
 
+  const topicsContainer= document.createElement('div');
+  topicsContainer.classList.add('topics')
+  
+  topics.forEach(topic => {
+    const tab = document.createElement('div');
+    tab.classList.add('tab');
+    tab.textContent = topic;
+    topicsContainer.appendChild(tab)
+
+  })
  
-  return topic
+  return topicsContainer
 }
 
 const tabsAppender = (selector) => {
@@ -64,24 +65,13 @@ const tabsAppender = (selector) => {
   axios.get('http://localhost:5001/api/topics')
         .then(res => {
          
-          const topics = [res.data.topics];
+          const topics = res.data.topics;
           console.log(topics);
 
           const tabsContainer = document.querySelector(selector);
 
-          // document.querySelector(selector).appendChild(Tabs(topics))
 
-          for( let i = 0; i < topics.length; i++) {
-            if(topics == tabsContainer) {
-              console.log('topic already present')
-            } else if (topics =! topics) {
-              var newTopic = document.createElement('div');
-                   newTopic.classList.add('tab');
-                   newTopic.textContent = topics
-                   tabsContainer.appendChild(Tabs(tabs.newTopic))
-            }  else { 
-                   console.log('topic not appending') }
-          }
+          
         })
 
 
@@ -110,3 +100,14 @@ export { Tabs, tabsAppender }
 
 // })
 // })
+
+    // for(let i = 0; i < topics.length; i++) {
+          //   if(topics[i] <= 2) {
+          //     console.log('already appended')
+          //   } else if (topics[i] > 3) {
+          //     const newTopic = document.createElement('div');
+          //          newTopic.classList.add('tab');
+          //          newTopic.textContent = topics[i]
+          //          tabsContainer.appendChild(Tabs(tabs.newTopic))
+          //   }
+          // }

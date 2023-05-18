@@ -33,8 +33,6 @@ headline.classList.add('headline');
 author.classList.add('author');
 imgContainer.classList.add('img-container');
 
-
-
 headline.textContent = articleHeadline;
 image.src = authorPhoto;
 authorName.textContent = nameofAuthor;
@@ -69,6 +67,7 @@ const cardAppender = (selector) => {
       console.log(articles);
 
       const cardsContainer = document.querySelector(selector);
+      
 
       console.log(articles.bootstrap)
 
@@ -89,13 +88,9 @@ const cardAppender = (selector) => {
       })
       
       })
-
       
     
   .catch(err => console.log(err))
-
-
-
  
    return cards
 }
