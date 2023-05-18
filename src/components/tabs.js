@@ -58,43 +58,34 @@ const tabsAppender = (selector) => {
   //
 
   const tabs = Tabs('topics');
- 
+
   //  tabsContainer.appendChild(tabs)
  
   axios.get('http://localhost:5001/api/topics')
         .then(res => {
          
-          const topics = res.data.topics;
+          const topics = [res.data.topics];
           console.log(topics);
 
           const tabsContainer = document.querySelector(selector);
 
-          document.querySelector(selector).appendChild(Tabs(topics))
+          // document.querySelector(selector).appendChild(Tabs(topics))
 
-          topics.forEach(topic => {
-                if(topic === null) {
-                  console.log('null')
-                } else if(topic ==! topic) {
-                  const newTopic = document.createElement('div');
-                  newTopic.classList.add('tab');
-                  newTopic.textContent = topic
-                  tabsContainer.appendChild(Tabs(tabs.newTopic))
-                } else {
-                  console.log('topic not appending')
-
-                }
-
-          })
-          
-
-
-
-
-          
-        // tabsContainer.appendChild(Tabs(tabs))
-
-
+          for( let i = 0; i < topics.length; i++) {
+            if(topics == tabsContainer) {
+              console.log('topic already present')
+            } else if (topics =! topics) {
+              var newTopic = document.createElement('div');
+                   newTopic.classList.add('tab');
+                   newTopic.textContent = topics
+                   tabsContainer.appendChild(Tabs(tabs.newTopic))
+            }  else { 
+                   console.log('topic not appending') }
+          }
         })
+
+
+          
          .catch(err => console.log(err))
 
       
@@ -104,3 +95,18 @@ const tabsAppender = (selector) => {
 
 }
 export { Tabs, tabsAppender }
+
+
+// topics.forEach(topic => {
+//   if(topic === null) {
+//      console.log('null')
+//    } else if(topic ==! topic) { 
+//      const newTopic = document.createElement('div');
+//      newTopic.classList.add('tab');
+//      newTopic.textContent = topic
+//      tabsContainer.appendChild(Tabs(tabs.newTopic))
+//    } else { 
+//      console.log('topic not appending') }
+
+// })
+// })
