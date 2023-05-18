@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const Card = (articleHeadline, authorPhoto, nameofAuthor) => {
+const Card = (article) => {
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -33,9 +33,9 @@ headline.classList.add('headline');
 author.classList.add('author');
 imgContainer.classList.add('img-container');
 
-headline.textContent = articleHeadline;
-image.src = authorPhoto;
-authorName.textContent = nameofAuthor;
+headline.textContent = article.headline;
+image.src = article.authorPhoto;
+authorName.textContent =`By ${article.authorName}` ;
 
 card.appendChild(headline);
 card.appendChild(author);
