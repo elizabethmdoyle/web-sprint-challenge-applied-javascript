@@ -44,7 +44,7 @@ author.appendChild(authorName);
 imgContainer.appendChild(image);
 
 card.addEventListener('click', () => {
-  console.log(headline.textContent)
+  console.log(article.headline)
 })
 
 
