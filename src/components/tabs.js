@@ -20,29 +20,29 @@ const Tabs = (topics) => {
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
   const tab3 = document.createElement('div');
-  const tab4 = document.createElement('div');
-  const tab5 = document.createElement('div');
+  // const tab4 = document.createElement('div');
+  // const tab5 = document.createElement('div');
 
 
   topic.classList.add('topics');
   tab1.classList.add('tab');
   tab2.classList.add('tab');
   tab3.classList.add('tab');
-  tab4.classList.add('tab');
-  tab5.classList.add('tab');
+  // tab4.classList.add('tab');
+  // tab5.classList.add('tab');
  
   tab1.textContent = 'javascript';
   tab2.textContent = 'bootstrap';
   tab3.textContent = 'technology';
-  tab4.textContent = 'jquery';
-  tab5.textContent = 'node.js';
+  // tab4.textContent = 'jquery';
+  // tab5.textContent = 'node.js';
 
  
   topic.appendChild(tab1);
   topic.appendChild(tab2);
   topic.appendChild(tab3);
-  topic.appendChild(tab4);
-  topic.appendChild(tab5);
+  // topic.appendChild(tab4);
+  // topic.appendChild(tab5);
 
  
   return topic
@@ -69,9 +69,29 @@ const tabsAppender = (selector) => {
 
           const tabsContainer = document.querySelector(selector);
 
-          // document.querySelector(selector).appendChild(Tabs(topics))
+          document.querySelector(selector).appendChild(Tabs(topics))
+
+          topics.forEach(topic => {
+                if(topic === null) {
+                  console.log('null')
+                } else if(topic ==! topic) {
+                  const newTopic = document.createElement('div');
+                  newTopic.classList.add('tab');
+                  newTopic.textContent = topic
+                  tabsContainer.appendChild(Tabs(tabs.newTopic))
+                } else {
+                  console.log('topic not appending')
+
+                }
+
+          })
           
-        tabsContainer.appendChild(Tabs(tabs))
+
+
+
+
+          
+        // tabsContainer.appendChild(Tabs(tabs))
 
 
         })
