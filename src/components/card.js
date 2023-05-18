@@ -40,7 +40,7 @@ authorName.textContent =`By ${article.authorName}` ;
 card.appendChild(headline);
 card.appendChild(author);
 author.appendChild(imgContainer);
-author.appendChild(authorName);
+author.appendChild(authorName)
 imgContainer.appendChild(image);
 
 card.addEventListener('click', () => {
@@ -51,7 +51,7 @@ card.addEventListener('click', () => {
 return card
 
 }
-const cardAppender = (selector) => {
+const cardAppender =  (selector) => {
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -61,43 +61,71 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
 
 
-  const cards = Card('articles');
+  // const cards = Card('articles');
+
+  // const cardsContainer = document.querySelector(selector);
 
 
-  axios.get('http://localhost:5001/api/articles')
-  .then(res => {
+  // axios.get('http://localhost:5001/api/articles')
+  //   .then(res => {
+      
+  //     const bootstrap = res.data.articles.bootstrap;
+  //     // const cards = Card('articles');
+  //     console.log(articles);
+
+      
+  const selected =document.querySelector(selector)
+  axios.get(`http://localhost:5001/api/articles`)
+  .then((resp) => {
+  const bootstrap = resp.data.articles.bootstrap
+  bootstrap.forEach(elem => {
+    selected.appendChild(Card(elem))
+  })
+  const javascript = resp.data.articles.javascript
+  javascript.forEach(elem => {
+    selected.appendChild(Card(elem))
+  })
+  const technology = resp.data.articles.technology
+  technology.forEach(elem => {
+    selected.appendChild(Card(elem))
+  })
+  const jquery = resp.data.articles.jquery
+  jquery.forEach(elem => {
+    selected.appendChild(Card(elem))
+  })
+  const node= resp.data.articles.node
+  node.forEach(elem => {
+    selected.appendChild(Card(elem))
+  })
+})
+  .catch((err) => {
+    console.log(err);
+  })
+
+      // console.log(articles.bootstrap)
+
+      // bootstrap.forEach(article => {
+      //   cardsContainer.appendChild(Card(article));
+      // })
+      // articles.javascript.forEach(article => {
+      //   cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      // })
+      // articles.jquery.forEach(article => {
+      //   cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      // })
+      // articles.node.forEach(article => {
+      //   cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      // })
+      // articles.technology.forEach(article => {
+      //   cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
+      // })
+      
+      
+      
     
-      const articles = res.data.articles;
-      // const cards = Card('articles');
-      console.log(articles);
-
-      const cardsContainer = document.querySelector(selector);
-      
-
-      console.log(articles.bootstrap)
-
-      articles.bootstrap.forEach(article => {
-        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
-      })
-      articles.javascript.forEach(article => {
-        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
-      })
-      articles.jquery.forEach(article => {
-        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
-      })
-      articles.node.forEach(article => {
-        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
-      })
-      articles.technology.forEach(article => {
-        cardsContainer.appendChild(Card(article.headline, article.authorPhoto, article.authorName));
-      })
-      
-      })
-      
-    
-  .catch(err => console.log(err))
+  // .catch(err => console.log(err))
  
-   return cards
 }
+
 
 export { Card, cardAppender }
