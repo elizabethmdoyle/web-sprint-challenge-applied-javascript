@@ -75,11 +75,6 @@ const tabsAppender = (selector) => {
           
          .catch(err => console.log(err))
 
-      
-
-   return tabs
-
-
 }
 export { Tabs, tabsAppender }
 
